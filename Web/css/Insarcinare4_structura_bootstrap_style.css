@@ -1,0 +1,43 @@
+body {
+  font-size: 40px;
+  color: white;
+}
+header{
+  background-color: rgb(193, 193, 193);
+  height: 125px;
+}
+nav {
+  background-color: rgb(209, 42, 102);
+  height: 70px;
+}
+footer{
+  height: 125px;
+  background-color: rgb(193, 193, 193);
+}
+.margin-block {
+  margin-bottom: 10px;
+}
+.sidebar {
+  background-color: rgb(97, 94, 93);
+  height: 600px;
+
+}
+.main{
+  background-color: rgb(65, 201, 122);
+  height: 600px;
+
+}
+.aside {
+  background-color:rgb(101, 149, 149);
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 20%;
+  height: 90px
+}
+.article {
+  background-color:rgb(235, 215, 35);
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 10%;
+  height: 125px;
+}

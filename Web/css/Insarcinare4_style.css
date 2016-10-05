@@ -1,0 +1,41 @@
+body {
+  text-align: center;
+  color: white;
+  font-family: monospace;
+  font-size: 40px;
+
+}
+
+header{
+  background-color: rgb(193, 193, 193);
+  height: 125px;
+}
+nav {
+  background-color: rgb(209, 42, 102);
+  height: 70px;
+}
+footer{
+  height: 125px;
+  background-color: rgb(193, 193, 193);
+}
+.margin-block {
+  margin-bottom: 10px;
+}
+.sidebar {
+  display: inline-block;
+  width: 30%;
+  background-color: rgb(97, 94, 93);
+  height: 600px;
+}
+.main{
+  display: inline-block;
+  width: 65%;
+  background-color: rgb(65, 201, 122);
+  height: 600px;
+}
+
+.aside {
+  background-color:rgb(101, 149, 149);
+
+  display: inline-block;
+}

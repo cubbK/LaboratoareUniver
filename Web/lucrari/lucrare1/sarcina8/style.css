@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans|Aldrich');
 body {
   margin: 0;
   font-family: 'Prociono', serif;
@@ -114,6 +115,12 @@ footer li {
   list-style-type: none;
 
 }
+.copy {
+  height: 50px;
+  color: #fff4e6;
+  text-align: center;
+  background: #434A52;
 
+}
 
 /*End footer styling*/

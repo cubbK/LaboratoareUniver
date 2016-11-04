@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans|Aldrich');
+
 body {
   margin: 0;
-    font-family: 'Droid Sans', sans-serif;
+  font-family: 'Droid Sans', sans-serif;
 }
 header {
   height: 100px;
@@ -14,6 +15,9 @@ main {
   margin: 0 auto;
   width: 960px;
 
+}
+p {
+  text-align: center;
 }
 main a {
   color :#434A52;
@@ -31,6 +35,7 @@ h1 {
 h1,h2,h3 {
   font-family: 'Aldrich', sans-serif;
 }
+/*Header stying*/
 .main-header {
   margin: 0 auto;
   width: 960px;
@@ -60,61 +65,89 @@ h1,h2,h3 {
   font-weight: bold;
 
 }
+/* END Header stying*/
 .img {
   margin-top: 5%;
 }
+/*Post zone styling*/
+.post-zone {
+  float: left;
+  width: 65%;
+}
+.categories {
+  float: right;
+  width: 30%;
+}
+.post {
+
+  margin-top: 30px;
+}
+.post img {
+  margin-left: 12px;
+  margin-top: 15px;
+}
+.post img , .post .desc {
+  float: left;
+}
+.post .desc {
+  padding-left: 20px;
+  width: 65%;
+  word-wrap: break-word;
+}
+.post .desc p{
+  text-align: left;
+}
+/* END Post zone styling*/
+
+/*Categories styling*/
+.categories ul {
+  list-style:none;
+}
+.categories ul li {
+  margin-top: 7px;
+}
+.categories li::before {
+  content: '>';
+  margin:0 5px 0 -15px;
+  color: #434A52;
+  font-weight: bolder;
+}
+
+
+/*END Categories styling*/
 .clear-fix{
   clear: both;
 }
-.post {
-  float: left;
-  margin-left: 15px;
-  margin-right: 15px;
-  text-overflow :clip;
-}
-.big-post{
-  margin-top: 30px;
-}
-.big-post .desc {
-  float: left;
-  width: 40%;
-  word-wrap: break-word;
-}
-.big-post img {
-  float: right;
-}
 
+.container-img {
+  float: left;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 50px;
+
+}
+.container-img .caption {
+  text-align: center;
+
+}
+.main-p {
+  margin-top: 40px;
+}
 /*Footer styling*/
 footer {
   margin-top: 50px;
-  min-height: 250px;
+  min-height: 100px;
   background: #434A52;
 }
 footer a {
   color: #C2F200;
 }
-footer li {
-  padding-bottom: 10px;
-  padding-top: 10px;
-  border-bottom : 2px solid #fff4e6;
-}
+
 .footer-content {
   margin: 0 auto;
   width: 960px;
 }
-.block-links{
-  width: 25%;
-  float: left;
-}
-.block-links h3 {
-  color: #fff4e6;
-  font-family: 'Aldrich', sans-serif;
 
-}
-.block-links ul {
-  list-style-type: none;
-
-}
 .copy {
   height: 50px;
   color: #fff4e6;

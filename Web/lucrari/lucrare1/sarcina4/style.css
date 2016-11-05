@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans|Aldrich');
+
+body {
+  margin: 0;
+  font-family: 'Droid Sans', sans-serif;
+}
+header {
+  height: 100px;
+  background:#434A52;
+  width: 100%;
+  font-family: 'Aldrich', sans-serif;
+  color: #fff4e6;
+}
+main {
+  margin: 0 auto;
+  width: 960px;
+
+}
+
+main a {
+  color :#434A52;
+  text-decoration: underline;
+}
+a {
+  color:#434A52;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 125%;
+}
+h1,h2,h3 {
+  font-family: 'Aldrich', sans-serif;
+}
+/*Header stying*/
+.main-header {
+  margin: 0 auto;
+  width: 960px;
+  padding-top: 20px;
+}
+.main-nav{
+  float : right;
+}
+.main-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+.main-nav ul li {
+  margin-bottom: 20px;
+  margin-left: 5px;
+  background: #fff4e6;
+
+  padding: 5px 5px 5px 5px;
+  display:inline-block;
+}
+
+.logo {
+  float : left;
+  font-size: 2em;
+  font-weight: bold;
+
+}
+/* END Header stying*/
+.img {
+  margin-top: 5%;
+}
+/*Post zone styling*/
+.post-zone {
+  float: left;
+  width: 65%;
+}
+.categories {
+  float: right;
+  width: 30%;
+}
+.post {
+  margin-top: 30px;
+}
+.post .title {
+  margin-bottom: 0;
+  clear: both;
+}
+
+.post .user , .post .date {
+  font-size: 70%;
+  font-weight: lighter;
+  margin: 2px;
+
+}
+
+.post-alt {
+  margin-top: 20px;
+  width: 50%;
+  float: left;
+  word-wrap: break-word;
+}
+
+
+/* END Post zone styling*/
+
+/*Categories styling*/
+.categories ul {
+  list-style:none;
+}
+.categories ul li {
+  margin-top: 7px;
+}
+.categories li::before {
+  content: '>';
+  margin:0 5px 0 -15px;
+  color: #434A52;
+  font-weight: bolder;
+}
+
+
+/*END Categories styling*/
+.clear-fix{
+  clear: both;
+}
+
+.container-img {
+  float: left;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 50px;
+
+}
+.container-img .caption {
+  text-align: center;
+
+}
+.main-p {
+  margin-top: 40px;
+}
+/*Footer styling*/
+footer {
+  margin-top: 50px;
+  min-height: 100px;
+  background: #434A52;
+}
+footer a {
+  color: #C2F200;
+}
+
+.footer-content {
+  margin: 0 auto;
+  width: 960px;
+}
+
+.copy {
+  height: 50px;
+  color: #fff4e6;
+  text-align: center;
+  background: #434A52;
+
+}
+
+/*End footer styling*/

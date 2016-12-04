@@ -1,6 +1,11 @@
 body {
+  overflow-x: hidden;
   font-family: 'Lato', sans-serif;
   color: #767676;
+  h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+  }
   a, a:hover, a:active, a:visited , {
     color: white;
     text-decoration: none;
@@ -16,3 +21,4 @@ body {
 
 @import "header";
 @import "main";
+@import "footer";

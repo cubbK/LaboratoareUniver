@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+
+  .container {
+    width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+header {
+  .left-part, .social {
+    display: inline-block;
+  }
+  .left-part {
+    width: 60%;
+  }
+  .social {
+    width: 30%;
+  }
+
+}

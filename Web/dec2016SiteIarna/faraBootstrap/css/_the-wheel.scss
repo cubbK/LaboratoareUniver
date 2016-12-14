@@ -4,18 +4,15 @@ body {
   .container {
     width: 1170px;
     margin: 0 auto;
+    clear: both;
   }
 }
 
 header {
-  .left-part, .social {
+  .left-part, .social, .logo, nav {
     display: inline-block;
   }
-  .left-part {
-    width: 60%;
+  nav ul li {
+    margin-top: 0;
   }
-  .social {
-    width: 30%;
-  }
-
 }

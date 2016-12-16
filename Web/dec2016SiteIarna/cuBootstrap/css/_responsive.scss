@@ -1,0 +1,59 @@
+@media(max-width: 1200px) {}
+
+
+/* Medium Devices, Desktops */
+
+@media(max-width: 992px) {
+    main .intro .title {
+        margin-top: 160px;
+    }
+}
+
+
+/* Small Devices, Tablets */
+
+@media(max-width: 768px) {
+    header {
+        .left-part {
+            text-align: center;
+            margin: 0 auto;
+        }
+        .social {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+    }
+    main .info {
+        height: 380px;
+        h1 {
+            font-size: 15px;
+        }
+        .items .item {
+            text-align: center;
+        }
+        main .about .left-part {
+            height: 0;
+            
+        }
+    }
+    
+    
+}
+
+
+/* Extra Small Devices, Phones */
+
+@media(max-width: 486px) {
+    header {
+        nav ul li {
+            margin-top: 25px;
+        }
+        .logo {
+            display: block;
+            text-align: center;
+            margin-right: 0;
+        }
+    }
+}
+/* Custom, iPhone Retina */
+@media(max-width: 320px) {}

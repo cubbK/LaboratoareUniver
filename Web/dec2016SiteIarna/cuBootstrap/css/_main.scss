@@ -16,18 +16,17 @@ main {
       font-size: 35px;
     }
   }
-  .items{
+  .items {
     min-height: 550px;
     background: #f7f7f7;
     .item {
       margin-bottom: 100px;
     }
-    & >.container>.row {
+    &>.container>.row {
       margin-top: 100px;
     }
     h3 {
       color: #767676;
-
     }
     p {
       margin-bottom: 20px;
@@ -39,7 +38,7 @@ main {
     }
   }
   .owl-carousel {
-    margin: 40px 0 ;
+    margin: 40px 0;
     text-align: center;
     h2 {
       font-size: 26px;
@@ -88,7 +87,7 @@ main {
       margin: 55px 0 40px 0;
     }
   }
-  .about > div {
+  .about>div {
     min-height: 410px;
   }
   .call-to-action {
@@ -132,6 +131,15 @@ main {
       text-indent: 30px;
       &:last-child {
         margin-bottom: 80px;
+      }
+    }
+    .p-img-wrapper {
+      height: 250px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      img {
+        display: block;
+        margin: 0 auto;
       }
     }
   }

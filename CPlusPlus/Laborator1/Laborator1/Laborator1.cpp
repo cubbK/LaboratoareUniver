@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include <vector>
+#include <map>
 #include <stdlib.h>  
 using namespace std;
 
@@ -36,7 +37,24 @@ float average(vector<int> vals) {
 	}
 	return (float)total / vals.size();
 }
-
+map <char, int> categorize(vector<int> vals, int controlPoint) {
+	map <char, int> categories;
+	categories['>'] = 0;
+	categories['<'] = 0;
+	categories['='] = 0;
+	for (int i : vals) {
+		if (i == controlPoint) {
+			categories['='] += 1;
+		}
+		else if (i < controlPoint) {
+			categories['<'] += 1;
+		}
+		else {
+			categories['>'] += 1;
+		}
+	}
+	return categories;
+}
 int main()
 {	
 	//numarul total de valori 
@@ -46,6 +64,9 @@ int main()
 	cout << "Valoarea maxima e " << maxValue(values) << endl;
 	cout << "Decalajul dintre valoarea maxima si minima e " << difference(minValue(values),maxValue(values)) << endl;
 	cout << "Valoarea medie a numerelor e " << average(values) << endl;
+	int controlPoint = 5;
+	map<char, int> categories = categorize(values, controlPoint);
+	cout << "Sunt " << categories['<'] << " numere mai mici ca " << controlPoint << ", " << categories['>'] << " mai mari si " << categories['='] << " egale" << endl;
     return 0;
 }
 

@@ -12,25 +12,25 @@ void showArr(int arr[], int lines) {
     cout << endl;
 }
 
-void showBiArr(int arr[][100], int lines, int rows) {
+void showBiArr(int arr[][100], int lines, int columns) {
     for (int i = 0 ; i < lines; i++) {
-        for (int j = 0 ; j < rows; j++) {
-            cout << arr[i][j] << " ";
+        for (int j = 0 ; j < columns; j++) {
+            cout << arr[j][i] << " ";
         }
         cout << endl;
     }
 }
 
-void showMaxValues(int arr[][100], int lines, int rows) {
+void showMaxValues(int arr[][100], int lines, int columns) {
     int maxValues[3];
     // 0 - populatia
     // 1 - suprafata
     // 2 - pib
-    for (int i = 0; i < rows; i++) {
+    for (int i = 0; i < columns; i++) {
         maxValues[i] = arr[0][i];
     }
     for (int i = 1; i < lines; i++) {
-        for( int j = 0; j < rows; j++) {
+        for( int j = 0; j < columns; j++) {
             if (maxValues[j] < arr[i][j]) {
                 maxValues[j] = arr[i][j];
             }
@@ -41,16 +41,16 @@ void showMaxValues(int arr[][100], int lines, int rows) {
     cout << "PIB-ul maxima e " << maxValues[2] << endl;
 }
 
-void showMinValues(int arr[][100], int lines, int rows) {
+void showMinValues(int arr[][100], int lines, int columns) {
     int minValues[3];
     // 0 - populatia
     // 1 - suprafata
     // 2 - pib
-    for (int i = 0; i < rows; i++) {
+    for (int i = 0; i < columns; i++) {
         minValues[i] = arr[0][i];
     }
     for (int i = 1; i < lines; i++) {
-        for( int j = 0; j < rows; j++) {
+        for( int j = 0; j < columns; j++) {
             if (minValues[j] > arr[i][j]) {
                 minValues[j] = arr[i][j];
             }
@@ -73,7 +73,7 @@ void pasteArr(int from[], int to[], int lines) {
     }
 }
 
-void changeColumn (int arr[][100], int lines, int rows) {
+void changeColumn (int arr[][100], int lines, int columns) {
     int posFirst;
     int posLast;
     cout << "introduceti pozitia primei coloane" << endl;
@@ -81,51 +81,82 @@ void changeColumn (int arr[][100], int lines, int rows) {
     cout << "introduceti pozitia coloanei 2" << endl;
     cin >> posLast;
 
-    int tempArr[rows];
-    copyArr(tempArr, arr[posLast], rows);
-    pasteArr(arr[posFirst], arr[posLast], rows);
-    pasteArr(tempArr,arr[posFirst], rows);
+    int tempArr[columns];
+    copyArr(tempArr, arr[posLast], columns);
+    pasteArr(arr[posFirst], arr[posLast], columns);
+    pasteArr(tempArr,arr[posFirst], columns);
 }
 
-void makeSpaceForColumn(int arr[][100], int &lines, int rows, int startPos) {
+void makeSpaceForColumn(int arr[][100], int lines, int &columns, int startPos) {
     for (int i = lines; i >= startPos; i--) {
-        for (int j = 0; j < rows; j++) {
+        for (int j = 0; j < columns; j++) {
             arr[i+1][j] = arr[i][j];
         }
     }
-    lines +=1;
+    columns +=1;
 }
 
-void getColumnInput(int arr[], int rows) {
+void getColumnInput(int arr[], int lines) {
     cout << "Introduceti valorile pentru coloana data" << endl;
-    for (int i = 0 ; i < rows; i++) {
+    for (int i = 0 ; i < lines; i++) {
         cin >> arr[i];
     }
 }
 
-void addColumn (int arr[][100], int &lines, int rows) {
+void addColumn (int arr[][100], int &lines, int columns) {
     int pos;
     cout << "Introduceti pozitia de inserare a coloanei ";
     cin >> pos;
-    makeSpaceForColumn(arr, lines, rows, 1);
+    makeSpaceForColumn(arr, lines, columns, pos);
 
-    int newColumn[rows];
-    getColumnInput(newColumn,rows);
+    int newColumn[columns];
+    getColumnInput(newColumn,lines);
 
-    pasteArr(newColumn, arr[pos], rows);
-    showBiArr(arr,lines,rows);
+    pasteArr(newColumn, arr[pos], columns);
+    showBiArr(arr,lines,columns);
+}
+
+void getMedium (int arr[][100], int output[], int lines, int columns) {
+    for (int j = 0 ; j < columns; j++) {
+        for (int i = 0 ; i < lines -1 ; i++) {
+            output[j] +=arr[i][j];
+        }
+        output[j] = output[j]/ (lines -1) ;
+    }
+}
+
+void addColumnMed (int arr[][100], int &lines, int columns) {
+    lines +=1;
+    int medColumn[columns] = {0};
+    getMedium(arr, medColumn, lines, columns);
+    pasteArr(medColumn, arr[lines-1], columns);
+}
+
+void genSpecialMatrix(int arr[][100], int lines, int columns) {
+    for (int i = 0 ; i < lines; i++) {
+        int refNr = 0;
+        for(int j = 0 ; j < columns; j++) {
+            if (j == 0) {
+              arr[i][j] =1;
+              refNr = 1;
+            } else {
+                arr[i][j] = refNr + i+1;
+            refNr = arr[i][j];
+            }
+        }
+    }
 }
 
 int main() {
     //test
     int lines = 3;
-    int rows = 3;
+    int columns = 3;
     int mainArr [100][100] = { {1,1,1} ,
 
                                {2,2,2},
                                {3,3,3}
                              };
-    showBiArr(mainArr,lines,rows);
+    showBiArr(mainArr,lines,columns);
     //end test
     cout << "(0) De determinat valorile maxime" << endl;
     cout << "(1) De determinat valorile minime" << endl;
@@ -133,25 +164,34 @@ int main() {
     cout << "(3) De adaugat 1 coloana" << endl;
     cout << "(4) De adaugat 1 coloana si de completat cu media populatiei,suprafetei si pib-ului" << endl;
     cout << "(5) ???" << endl;
-    cout << "De generat matricea speciala din varianta"<<endl;
+    cout << "(6) De generat matricea speciala din varianta"<<endl;
 
     int itemChosen;
     cout << "Alegeti varianta dorita " ;
     cin >> itemChosen;
     switch (itemChosen) {
     case 0 :
-        showMaxValues(mainArr, lines, rows);
+        showMaxValues(mainArr, lines, columns);
         break;
     case 1 :
-        showMinValues(mainArr, lines, rows);
+        showMinValues(mainArr, lines, columns);
         break;
     case 2 :
-        changeColumn(mainArr, lines, rows);
+        changeColumn(mainArr, lines, columns);
         cout << "Dupa schimbarea coloanelor" << endl;
-        showBiArr(mainArr,lines,rows);
+        showBiArr(mainArr,lines,columns);
         break;
     case 3 :
-        addColumn(mainArr, lines, rows);
+        addColumn(mainArr, lines, columns);
+        break;
+    case 4 :
+        cout << "Ultima coloana e media la PIB, populatie si suprafata" << endl;
+        addColumnMed(mainArr, lines, columns);
+        showBiArr(mainArr,lines-1,columns+1);
+        break;
+    case 6:
+        genSpecialMatrix(mainArr, lines, columns);
+        showBiArr(mainArr, lines, columns);
         break;
     default:
         cout << "Gresit" << endl;

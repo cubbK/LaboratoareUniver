@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1488531510 source:f:\laboratoare\laborator2\main.cpp
+	<iostream>
+	<string>
+	<sstream>
+
+1488797638 source:h:\laboratoare\laborator2\main.cpp
+	<iostream>
+	<string>
+

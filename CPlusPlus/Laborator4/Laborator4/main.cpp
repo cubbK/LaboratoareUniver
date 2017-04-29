@@ -147,15 +147,26 @@ void genSpecialMatrix(int arr[][100], int lines, int columns) {
     }
 }
 
+void getArrInput(int arr[][100], int &lines, int &columns) {
+    cout << "Introduceti numarul de randuri" <<endl;
+    cin >> lines;
+    cout << "Introduceti numarul de coloane" <<endl;
+    cin >> columns;
+    cout << "Introduceti matricea, cate " << columns << " valori pe rand" << endl;
+    for (int i = 0 ; i < lines; i++) {
+        cout << "Randul " << i +1<< endl;
+        for (int j = 0 ; j < columns; j++){
+            cin >> arr[i][j];
+        }
+    }
+}
+
 int main() {
     //test
-    int lines = 3;
-    int columns = 3;
-    int mainArr [100][100] = { {1,1,1} ,
-
-                               {2,2,2},
-                               {3,3,3}
-                             };
+    int lines =0;
+    int columns = 0;
+    int mainArr [100][100] = {0};
+    getArrInput(mainArr, columns, lines);
     showBiArr(mainArr,lines,columns);
     //end test
     cout << "(0) De determinat valorile maxime" << endl;

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h> // memcpy
 using namespace std;
 //Laborator 4
 
@@ -161,6 +162,46 @@ void getArrInput(int arr[][100], int &lines, int &columns) {
     }
 }
 
+void getArr(int arr[], int nrElements) {
+    cout << "Introduceti lista" << endl;
+    for(int i = 0 ; i < nrElements;i++){
+        cout << "Elementul " << i << endl;
+        cin >> arr[i];
+    }
+}
+
+int getSmallestNrIndex(int arr[], int startPos, int length) {
+    int smallest = arr[startPos];
+    int index = startPos;
+    for (int i = startPos+1; i < length; i++) {
+        if (smallest > arr[i]) {
+            smallest = arr[i];
+            index = i;
+        }
+    }
+    return index;
+}
+
+void sortArrLines(int arr[], int arr2d[][100], int length){
+    for(int i = 0 ; i < length-1; i++) {
+        int smallestIndex = getSmallestNrIndex(arr, i, length);
+        int tempArr[100] = {};
+        memcpy(tempArr, arr2d[i], sizeof(arr2d[i])); //destination , source
+        memcpy(arr2d[i], arr2d[smallestIndex], sizeof(arr2d[i])); //destination , source
+        memcpy(arr2d[smallestIndex], tempArr, sizeof(arr2d[i])); //destination , source
+    }
+}
+
+void sortArrColumns(int arr[], int arr2d[][100], int length){
+    for(int i = 0 ; i < length-1; i++) {
+        int smallestIndex = getSmallestNrIndex(arr, i, length);
+        int tempArr[100] = {};
+        memcpy(tempArr, arr2d[i], sizeof(arr2d[i])); //destination , source
+        memcpy(arr2d[i], arr2d[smallestIndex], sizeof(arr2d[i])); //destination , source
+        memcpy(arr2d[smallestIndex], tempArr, sizeof(arr2d[i])); //destination , source
+    }
+}
+
 int main() {
     //test
     int lines =0;
@@ -169,13 +210,16 @@ int main() {
     getArrInput(mainArr, columns, lines);
     showBiArr(mainArr,lines,columns);
     //end test
+    int refArr[5] = {0};
+
     cout << "(0) De determinat valorile maxime" << endl;
     cout << "(1) De determinat valorile minime" << endl;
     cout << "(2) De schimbat 2 coloane" << endl;
     cout << "(3) De adaugat 1 coloana" << endl;
     cout << "(4) De adaugat 1 coloana si de completat cu media populatiei,suprafetei si pib-ului" << endl;
-    cout << "(5) ???" << endl;
-    cout << "(6) De generat matricea speciala din varianta"<<endl;
+    cout << "(5) De aranjaat matricea dupa linia adaugata" << endl;
+    cout << "(6) De aranjaat matricea dupa coloana adaugata" << endl;
+    cout << "(7) De generat matricea speciala din varianta"<<endl;
 
     int itemChosen;
     cout << "Alegeti varianta dorita " ;
@@ -200,7 +244,19 @@ int main() {
         addColumnMed(mainArr, lines, columns);
         showBiArr(mainArr,lines-1,columns+1);
         break;
+    case 5:
+        getArr(refArr, columns);
+        sortArrLines(refArr, mainArr, columns);
+        cout << "array sortat" << endl;
+        showBiArr(mainArr, lines, columns);
+        break;
     case 6:
+        getArr(refArr, lines);
+        sortArrLines(refArr, mainArr, lines);
+        cout << "array sortat" << endl;
+        showBiArr(mainArr, lines, columns);
+        break;
+    case 7:
         genSpecialMatrix(mainArr, lines, columns);
         showBiArr(mainArr, lines, columns);
         break;

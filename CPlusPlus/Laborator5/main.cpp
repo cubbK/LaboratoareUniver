@@ -39,6 +39,7 @@ public:
         }
         writeToFile(goodWords, "data.out");
     }
+
     void deleteGoodWords() {
         string badWords ="";
         for (int i = 0; i < words.size(); i++) {
@@ -97,13 +98,20 @@ private:
 
 };
 
-int main() {
-    //data.in processing
-    ifstream inFile("data.in");
+
+string readFromFile(string filePath) {
+    ifstream inFile(filePath.c_str());
     stringstream strStream;
     strStream << inFile.rdbuf();//read the file
-    string inFileStr = strStream.str();//str holds the content of the file
+    return strStream.str();
+}
+
+int main() {
+    //data.in processing
+    string inFileStr = readFromFile("data.in");
     //end data.in processing
+    string inFileStudents = readFromFile("students.dat");
+
 
     string text;
     cout << "Introduceti fraza"<<endl;
@@ -111,6 +119,7 @@ int main() {
 
     Text UserText(text);
     Text DataText(inFileStr);
+    Text students(inFileStudents);
 
     cout << "(0) Intr-o fraza de determinat numarul de cuvinte." << endl;
     cout << "(1) De determinat cuvintele dintr-o fraza, ce contin orice vocala doar o singura data." << endl;
@@ -118,7 +127,7 @@ int main() {
     cout << "(3) In fisierul data.in de determinat numărul de cuvinte." << endl;
     cout << "(4) De inscris in fisierul data.out cuvintele, ce contin orice vocala doar o singură data." << endl;
     cout << "(5) De sters cuvintele din data.in, ce contin orice vocala doar o singura data" << endl;
-    cout << "(6) Intr-un fisier text de determinat cuvintele ce satisfac o conditie suplimentara (se precizează individual)."<<endl;
+    cout << "(6) De aratat studentii cu media mai mare de N din students.dat"<<endl;
 
     int itemChosen;
     cout << "Alegeti varianta dorita " << endl;
@@ -128,10 +137,11 @@ int main() {
         cout << "Sunt "<< UserText.words.size() << " cuvinte" << endl;
         break;
     case 1:
-        UserText.showBadWords();
+        UserText.showGoodWords();
         break;
     case 2:
-        UserText.showGoodWords();
+        UserText.deleteGoodWords();
+        cout << "Cuvintele ce satisfac conditia au fost sterse" << endl;
         break;
     case 3:
         cout << "Sunt "<< DataText.words.size() << " cuvinte in data.in" << endl;
@@ -141,8 +151,11 @@ int main() {
         cout << "Operatie reusita" <<endl;
         break;
     case 5:
-        UserText.deleteGoodWords();
+        DataText.deleteGoodWords();
         cout << "Operatie reusita"<< endl;
+        break;
+    case 6:
+        cout << "Conditie speciala";
         break;
     default:
         cout << "Ati ales varianta gresita" << endl;

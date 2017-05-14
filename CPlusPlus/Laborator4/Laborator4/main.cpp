@@ -246,7 +246,7 @@ int main() {
         break;
     case 5:
         getArr(refArr, columns);
-        sortArrLines(refArr, mainArr, columns);
+        sortArrLines(refArr, mainArr, lines);
         cout << "array sortat" << endl;
         showBiArr(mainArr, lines, columns);
         break;

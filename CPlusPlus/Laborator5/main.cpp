@@ -94,10 +94,34 @@ private:
         stream << text;
         stream.close();
     }
-
-
 };
 
+class Students : public Text {
+private:
+    struct student{
+        string name;
+        int mark1;
+        int mark2;
+    };
+    vector<student> separateStudents() {
+        vector<student> students;
+        int pos = 0;
+
+
+        return students;
+    }
+public:
+    Students(string text) : Text(text){};
+    vector<student> studentsList;
+
+
+    void showWords() {
+        for (int i = 0 ; i < words.size(); i++) {
+            cout << words[i] << " ";
+        }
+        cout << endl;
+    }
+};
 
 string readFromFile(string filePath) {
     ifstream inFile(filePath.c_str());
@@ -119,7 +143,10 @@ int main() {
 
     Text UserText(text);
     Text DataText(inFileStr);
-    Text students(inFileStudents);
+    Students students(inFileStudents);
+    students.showWords();
+
+
 
     cout << "(0) Intr-o fraza de determinat numarul de cuvinte." << endl;
     cout << "(1) De determinat cuvintele dintr-o fraza, ce contin orice vocala doar o singura data." << endl;

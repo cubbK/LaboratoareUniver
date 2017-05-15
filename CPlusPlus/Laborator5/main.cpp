@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 #include <vector>
 #include <sstream>
 #include <fstream>
@@ -105,21 +106,34 @@ private:
     };
     vector<student> separateStudents() {
         vector<student> students;
-        int pos = 0;
-
-
+        for(int i = 0 ; i < words.size(); i+=3) {
+            student st;
+            st.name = words[i];
+            st.mark1 = atoi(words[i+1].c_str());
+            st.mark2 = atoi(words[i+2].c_str());
+            students.push_back(st);
+        }
         return students;
     }
 public:
     Students(string text) : Text(text){};
-    vector<student> studentsList;
-
+    vector<student> studentsList = separateStudents();
 
     void showWords() {
         for (int i = 0 ; i < words.size(); i++) {
             cout << words[i] << " ";
         }
         cout << endl;
+    }
+
+    void showstudentsN(int n) {
+        for (int i = 0 ; i < studentsList.size(); i++) {
+            student st = studentsList[i];
+            int med = (st.mark1 + st.mark2) /2;
+            if (med > n) {
+                cout << st.name << endl;
+            }
+        }
     }
 };
 
@@ -144,9 +158,8 @@ int main() {
     Text UserText(text);
     Text DataText(inFileStr);
     Students students(inFileStudents);
-    students.showWords();
 
-
+    int N;
 
     cout << "(0) Intr-o fraza de determinat numarul de cuvinte." << endl;
     cout << "(1) De determinat cuvintele dintr-o fraza, ce contin orice vocala doar o singura data." << endl;
@@ -182,12 +195,12 @@ int main() {
         cout << "Operatie reusita"<< endl;
         break;
     case 6:
-        cout << "Conditie speciala";
+        cout << "Introduceti N" << endl;
+        cin >> N;
+        students.showstudentsN(N);
         break;
     default:
         cout << "Ati ales varianta gresita" << endl;
-
-
     }
     return 0;
 }

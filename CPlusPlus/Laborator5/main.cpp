@@ -159,48 +159,52 @@ int main() {
     Text DataText(inFileStr);
     Students students(inFileStudents);
 
-    int N;
-
-    cout << "(0) Intr-o fraza de determinat numarul de cuvinte." << endl;
-    cout << "(1) De determinat cuvintele dintr-o fraza, ce contin orice vocala doar o singura data." << endl;
-    cout << "(2) De sters cuvintele dintr-o fraza, ce contin orice vocala doar o singura data." << endl;
-    cout << "(3) In fisierul data.in de determinat numărul de cuvinte." << endl;
-    cout << "(4) De inscris in fisierul data.out cuvintele, ce contin orice vocala doar o singură data." << endl;
-    cout << "(5) De sters cuvintele din data.in, ce contin orice vocala doar o singura data" << endl;
-    cout << "(6) De aratat studentii cu media mai mare de N din students.dat"<<endl;
-
     int itemChosen;
-    cout << "Alegeti varianta dorita " << endl;
-    cin >> itemChosen;
-    switch (itemChosen){
-    case 0:
-        cout << "Sunt "<< UserText.words.size() << " cuvinte" << endl;
-        break;
-    case 1:
-        UserText.showGoodWords();
-        break;
-    case 2:
-        UserText.deleteGoodWords();
-        cout << "Cuvintele ce satisfac conditia au fost sterse" << endl;
-        break;
-    case 3:
-        cout << "Sunt "<< DataText.words.size() << " cuvinte in data.in" << endl;
-        break;
-    case 4 :
-        UserText.writeGoodWords();
-        cout << "Operatie reusita" <<endl;
-        break;
-    case 5:
-        DataText.deleteGoodWords();
-        cout << "Operatie reusita"<< endl;
-        break;
-    case 6:
-        cout << "Introduceti N" << endl;
-        cin >> N;
-        students.showstudentsN(N);
-        break;
-    default:
-        cout << "Ati ales varianta gresita" << endl;
+    int N;
+    while(itemChosen!=7) {
+        cout << "(0) Intr-o fraza de determinat numarul de cuvinte." << endl;
+        cout << "(1) De determinat cuvintele dintr-o fraza, ce contin orice vocala doar o singura data." << endl;
+        cout << "(2) De sters cuvintele dintr-o fraza, ce contin orice vocala doar o singura data." << endl;
+        cout << "(3) In fisierul data.in de determinat numărul de cuvinte." << endl;
+        cout << "(4) De inscris in fisierul data.out cuvintele, ce contin orice vocala doar o singură data." << endl;
+        cout << "(5) De sters cuvintele din data.in, ce contin orice vocala doar o singura data" << endl;
+        cout << "(6) De aratat studentii cu media mai mare de N din students.dat"<<endl;
+        cout << "(7) Exit" << endl;
+
+        cout << "Alegeti varianta dorita " << endl;
+        cin >> itemChosen;
+
+        switch (itemChosen){
+        case 0:
+            cout << "Sunt "<< UserText.words.size() << " cuvinte" << endl;
+            break;
+        case 1:
+            UserText.showGoodWords();
+            break;
+        case 2:
+            UserText.deleteGoodWords();
+            cout << "Cuvintele ce satisfac conditia au fost sterse" << endl;
+            break;
+        case 3:
+            cout << "Sunt "<< DataText.words.size() << " cuvinte in data.in" << endl;
+            break;
+        case 4 :
+            UserText.writeGoodWords();
+            cout << "Operatie reusita" <<endl;
+            break;
+        case 5:
+            DataText.deleteGoodWords();
+            cout << "Operatie reusita"<< endl;
+            break;
+        case 6:
+            cout << "Introduceti N" << endl;
+            cin >> N;
+            students.showstudentsN(N);
+            break;
+        default:
+            cout << "Ati ales varianta gresita" << endl;
+        }
     }
+
     return 0;
 }
